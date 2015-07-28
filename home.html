@@ -10,9 +10,6 @@
 		<script src="js/routes.js"></script>
 		<script src="js/factory.js"></script>
 		<script src="js/controller.js"></script>
-		<script>
-		
-		</script>
 	</head>
 	<body ng-app="myApp">
 		<div class="container">
@@ -32,19 +29,29 @@
 				</nav>
 				<div class="row">
 					<div class="col-xs-6">
-					<span ng-if="checked">
-						<div class="panel panel-default">
-						   <div class="panel-heading">
-							  Tag List
-						   </div>
-						   <div class="panel-body">
-								<div ng-repeat="t in tags">
-									<a href="#images/{{t.name}}"><p>{{t.name}} Media Count: {{t.media_count}}</p></a>
-								</div>
-						   </div>
-						</div>
-					</span>
-						
+						<span ng-if="checked">
+							<div class="panel panel-default">
+							   <div class="panel-heading">
+								  Tag List
+							   </div>
+							   <div class="panel-body">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Media Count</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="t in tags">
+												<td><a href="#images/{{t.name}}">{{t.name}}</a></td>
+												<td>{{t.media_count}}</td>
+											</tr>
+										</tbody>
+									</table>
+							   </div>
+							</div>
+						</span>	
 					</div>
 					<div class="col-xs-6">
 						<div ng-view></div>
